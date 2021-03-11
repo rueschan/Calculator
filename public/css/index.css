@@ -1,0 +1,59 @@
+html {
+  font-family: sans-serif;
+}
+
+#answer-text {
+  width: 95%;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 80px;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+#keyboard {
+  width: 95%;
+}
+
+button {
+  border-radius: 100%;
+  height: 65px;
+  width: 65px;
+  border: none;
+  text-align: center;
+  font-size: x-large;
+}
+
+.double-button {
+  width: 130px;
+  border-top-right-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  border-bottom-left-radius: 50% 100%;
+  border-top-left-radius: 50% 100%;
+  text-align: left;
+  padding-left: 15%;
+}
+
+.black {
+  background-color: black;
+}
+
+.row {
+  height: 70px;
+  margin: none;
+}
+
+.light-gray {
+  background-color: grey;
+  color: black;
+}
+
+.dark-gray {
+  background-color: rgb(54, 54, 54);
+  color: white;
+}
+
+.orange {
+  background-color: orange;
+  color: white;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rubén's Calculator</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+  <!-- Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/index.css">
+
+</head>
+
+<body class="black">
+  <p id="answer-text" class="text-white">0</p>
+
+  <div id="keyboard" class="container">
+
+    <!-- First Row -->
+    <div class="row">
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle light-gray" name="clear"
+          onclick="keyPressed(this)">
+          AC
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle light-gray" name="sign"
+          onclick="keyPressed(this)">
+          +/-
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle light-gray" name="percent"
+          onclick="keyPressed(this)">
+          %
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle orange" name="divide"
+          onclick="keyPressed(this)">
+          /
+        </button>
+      </div>
+    </div>
+
+    <!-- First Row -->
+    <div class="row">
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="seven"
+          onclick="keyPressed(this)">
+          7
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="eight"
+          onclick="keyPressed(this)">
+          8
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="nine"
+          onclick="keyPressed(this)">
+          9
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle orange" name="multiply"
+          onclick="keyPressed(this)">
+          x
+        </button>
+      </div>
+    </div>
+
+    <!-- First Row -->
+    <div class="row">
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="four"
+          onclick="keyPressed(this)">
+          4
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="five"
+          onclick="keyPressed(this)">
+          5
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="six"
+          onclick="keyPressed(this)">
+          6
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle orange" name="substract"
+          onclick="keyPressed(this)">
+          -
+        </button>
+      </div>
+    </div>
+
+    <!-- First Row -->
+    <div class="row">
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="one"
+          onclick="keyPressed(this)">
+          1
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="two"
+          onclick="keyPressed(this)">
+          2
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="three"
+          onclick="keyPressed(this)">
+          3
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle orange" name="add" onclick="keyPressed(this)">
+          +
+        </button>
+      </div>
+    </div>
+
+    <!-- First Row -->
+    <div class="row">
+      <div class="col-6 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray double-button" name="zero"
+          onclick="keyPressed(this)">
+          0
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle dark-gray" name="dot"
+          onclick="keyPressed(this)">
+          .
+        </button>
+      </div>
+      <div class="col-3 position-relative">
+        <button class="position-absolute top-50 start-50 translate-middle orange" name="equal"
+          onclick="keyPressed(this)">
+          =
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

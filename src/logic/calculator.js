@@ -1,6 +1,12 @@
 /* eslint-disable no-param-reassign */
 const keys = require('./keys.json');
 
+const {
+  isPercentage,
+  ifPercentageToFractionOf100,
+  ifPercentageToFractionOfLeft,
+} = require('./utils/percentage');
+
 let currentNumber = '';
 let currentCalculationString = '';
 let numberQueue = [];
@@ -9,6 +15,9 @@ let enabledOperator = false;
 
 const concatDigit = (digit) => {
   if (digit === '.' && currentNumber.includes('.')) {
+    return currentNumber;
+  }
+  if (digit === '%' && currentNumber.includes('%')) {
     return currentNumber;
   }
 
@@ -27,6 +36,13 @@ const changeSign = () => {
 const buildNumber = () => {
   currentCalculationString = currentCalculationString.concat(currentNumber);
 
+  if (isPercentage(currentCalculationString)) {
+    numberQueue.push(currentNumber);
+    currentNumber = '';
+    enabledOperator = true;
+    return;
+  }
+
   const num = Number.parseFloat(currentNumber);
   currentNumber = '';
 
@@ -36,9 +52,11 @@ const buildNumber = () => {
   }
 };
 
-const doPercent = () => {};
 const doSubstraction = (a, b) => a - b;
-const doAddition = (a, b) => a + b;
+const doAddition = (a, b) => {
+  console.log('Operation', a, '+', b, '=', a + b);
+  return a + b;
+};
 const doDivision = (a, b) => a / b;
 const doMultiplication = (a, b) => a * b;
 
@@ -58,8 +76,6 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
     const currentOperation = operationQueueParam.shift();
     const [nextOperation] = operationQueueParam;
 
-    console.log('Next', nextOperation);
-
     const left = numberQueueParam.shift();
     if (nextOperation && currentOperation.hierarchy < nextOperation.hierarchy) {
       recursiveSolve(operationQueueParam, numberQueueParam);
@@ -68,16 +84,28 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
 
     switch (currentOperation.operation) {
       case 'substraction':
-        numberQueueParam[0] = doSubstraction(left, right);
+        numberQueueParam[0] = doSubstraction(
+          ifPercentageToFractionOf100(left),
+          ifPercentageToFractionOfLeft(left, right),
+        );
         break;
       case 'addition':
-        numberQueueParam[0] = doAddition(left, right);
+        numberQueueParam[0] = doAddition(
+          ifPercentageToFractionOf100(left),
+          ifPercentageToFractionOfLeft(left, right),
+        );
         break;
       case 'multiplication':
-        numberQueueParam[0] = doMultiplication(left, right);
+        numberQueueParam[0] = doMultiplication(
+          ifPercentageToFractionOf100(left),
+          ifPercentageToFractionOf100(right),
+        );
         break;
       case 'division':
-        numberQueueParam[0] = doDivision(left, right);
+        numberQueueParam[0] = doDivision(
+          ifPercentageToFractionOf100(left),
+          ifPercentageToFractionOf100(right),
+        );
         break;
 
       default:
@@ -121,6 +149,9 @@ const keyMediator = (keyDetails) => {
       result = solve();
       numberQueue.pop();
       return result;
+
+    case 'percentage':
+      return concatDigit(keyDetails.sign);
 
     case 'operator':
       buildNumber();

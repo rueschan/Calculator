@@ -29,6 +29,28 @@ describe('Separated operations by hierarchy', () => {
     }
   });
 
+  test('Substraction and addition only with percentage', () => {
+    for (let i = 0; i < 10; i += 1) {
+      const a = Math.floor(Math.random() * 9);
+      const b = Math.floor(Math.random() * 9);
+      const c = Math.floor(Math.random() * 9);
+
+      const correctAnswer = a + b - ((a + b) * c / 100) + c;
+
+      onKeyPressed(numbers[a]);
+      onKeyPressed('addition');
+      onKeyPressed(numbers[b]);
+      onKeyPressed('substraction');
+      onKeyPressed(numbers[c]);
+      onKeyPressed('percentage');
+      onKeyPressed('addition');
+      onKeyPressed(numbers[c]);
+
+      const answer = onKeyPressed('equal');
+      expect(answer).toBe(correctAnswer);
+    }
+  });
+
   test('Multiplication and division only', () => {
     for (let i = 0; i < 10; i += 1) {
       const a = Math.floor(Math.random() * 9);
@@ -48,6 +70,28 @@ describe('Separated operations by hierarchy', () => {
       onKeyPressed(numbers[d]);
       onKeyPressed('division');
       onKeyPressed(numbers[e]);
+
+      const answer = onKeyPressed('equal');
+      expect(answer).toBe(correctAnswer);
+    }
+  });
+
+  test('Multiplication and division only with percentage', () => {
+    for (let i = 0; i < 10; i += 1) {
+      const a = Math.floor(Math.random() * 9);
+      const b = Math.floor(Math.random() * 9);
+      const c = Math.floor(Math.random() * 9);
+
+      const correctAnswer = a * b / (c / 100) * c;
+
+      onKeyPressed(numbers[a]);
+      onKeyPressed('multiplication');
+      onKeyPressed(numbers[b]);
+      onKeyPressed('division');
+      onKeyPressed(numbers[c]);
+      onKeyPressed('percentage');
+      onKeyPressed('multiplication');
+      onKeyPressed(numbers[c]);
 
       const answer = onKeyPressed('equal');
       expect(answer).toBe(correctAnswer);
@@ -75,6 +119,31 @@ describe('Mixed operations by hierarchy', () => {
       onKeyPressed(numbers[d]);
       onKeyPressed('division');
       onKeyPressed(numbers[e]);
+
+      const answer = onKeyPressed('equal');
+      expect(answer).toBe(correctAnswer);
+    }
+  });
+
+  test('Hierarchy 1 and 2 operations with percentage', () => {
+    for (let i = 0; i < 10; i += 1) {
+      const a = Math.floor(Math.random() * 9);
+      const b = Math.floor(Math.random() * 9);
+      const c = Math.floor(Math.random() * 9);
+
+      const correctAnswer = a + (a * c / 100) + b * (c / 100) + c;
+
+      onKeyPressed(numbers[a]);
+      onKeyPressed('addition');
+      onKeyPressed(numbers[c]);
+      onKeyPressed('percentage');
+      onKeyPressed('addition');
+      onKeyPressed(numbers[b]);
+      onKeyPressed('multiplication');
+      onKeyPressed(numbers[c]);
+      onKeyPressed('percentage');
+      onKeyPressed('addition');
+      onKeyPressed(numbers[c]);
 
       const answer = onKeyPressed('equal');
       expect(answer).toBe(correctAnswer);

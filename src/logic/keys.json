@@ -47,10 +47,8 @@
     "type": "sign"
   },
   "percentage": {
-    "type": "operator",
-    "sign": "%",
-    "operation": "percentage",
-    "hierarchy": 1
+    "type": "percentage",
+    "sign": "%"
   },
   "substraction": {
     "type": "operator",

@@ -52,14 +52,20 @@ const addOperation = (operatorDetails) => {
 };
 
 const recursiveSolve = (operationQueueParam, numberQueueParam) => {
-  let currentOperation;
-
   let queueSize = operationQueueParam.length;
+
   while (queueSize > 0) {
-    currentOperation = operationQueueParam.shift();
+    const currentOperation = operationQueueParam.shift();
+    const [nextOperation] = operationQueueParam;
+
+    console.log('Next', nextOperation);
 
     const left = numberQueueParam.shift();
-    const right = numberQueueParam[0];
+    if (nextOperation && currentOperation.hierarchy < nextOperation.hierarchy) {
+      recursiveSolve(operationQueueParam, numberQueueParam);
+    }
+    const [right] = numberQueueParam;
+
     switch (currentOperation.operation) {
       case 'substraction':
         numberQueueParam[0] = doSubstraction(left, right);
@@ -78,16 +84,19 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
         throw Error('Unidentified operation');
     }
 
+    console.log('Operation', left, currentOperation.operation, right, '=', numberQueueParam[0]);
+
+    if (nextOperation && currentOperation.hierarchy > nextOperation.hierarchy) break;
     queueSize = operationQueueParam.length;
   }
-
-  return numberQueueParam.shift();
 };
 
 const solve = () => {
   const cloneOperationQueue = operationQueue.slice();
   const cloneNumberQueue = numberQueue.slice();
-  return recursiveSolve(cloneOperationQueue, cloneNumberQueue);
+
+  recursiveSolve(cloneOperationQueue, cloneNumberQueue);
+  return cloneNumberQueue.shift();
 };
 
 const clear = () => {

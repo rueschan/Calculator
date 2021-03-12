@@ -46,34 +46,34 @@
   "sign": {
     "type": "sign"
   },
-  "percent": {
+  "percentage": {
     "type": "operator",
     "sign": "%",
-    "operation": "percent",
+    "operation": "percentage",
     "hierarchy": 1
   },
-  "substract": {
+  "substraction": {
     "type": "operator",
     "sign": "-",
-    "operation": "substract",
+    "operation": "substraction",
     "hierarchy": 1
   },
-  "add": {
+  "addition": {
     "type": "operator",
     "sign": "+",
-    "operation": "add",
+    "operation": "addition",
     "hierarchy": 1
   },
-  "divide": {
-    "type": "operator",
-    "sign": "/",
-    "operation": "divide",
-    "hierarchy": 2
-  },
-  "multiply": {
+  "multiplication": {
     "type": "operator",
     "sign": "x",
-    "operation": "multiply",
+    "operation": "multiplication",
+    "hierarchy": 2
+  },
+  "division": {
+    "type": "operator",
+    "sign": "/",
+    "operation": "division",
     "hierarchy": 2
   },
   "equal": {

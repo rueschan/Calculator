@@ -10,8 +10,8 @@ function keyPressed(element) {
   let pixelsToReduce = 0;
   if (result && String(result).length > MAX_RESULT_LENGTH) {
     pixelsToReduce = Math.min(
-      50,
-      (String(result).length - MAX_RESULT_LENGTH) * 5,
+      60,
+      Math.log10(String(result).length - MAX_RESULT_LENGTH) * 50,
     );
   }
 

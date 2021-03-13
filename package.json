@@ -8,7 +8,8 @@
     "test": "jest --silent",
     "lint-fix": "eslint --fix .",
     "lint": "eslint .",
-    "fresh-start": "npm i --prod & npm start"
+    "fresh-start": "npm i --prod & npm start",
+    "quality-check": "npm i & npm run lint & npm run test"
   },
   "repository": {
     "type": "git",

@@ -10,7 +10,7 @@ const {
   doMultiplication,
 } = require('./operations');
 
-const recursiveSolve = (operationQueueParam, numberQueueParam) => {
+const recursiveSolve = (operationQueueParam, numberQueueParam, depth = 0) => {
   let queueSize = operationQueueParam.length;
 
   while (queueSize > 0) {
@@ -19,7 +19,7 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
 
     const left = numberQueueParam.shift();
     if (nextOperation && currentOperation.hierarchy < nextOperation.hierarchy) {
-      recursiveSolve(operationQueueParam, numberQueueParam);
+      recursiveSolve(operationQueueParam, numberQueueParam, depth + 1);
     }
     const [right] = numberQueueParam;
 
@@ -57,7 +57,7 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
         throw Error('Unidentified operation');
     }
 
-    if (nextOperation && currentOperation.hierarchy > nextOperation.hierarchy) break;
+    if (nextOperation && currentOperation.hierarchy > nextOperation.hierarchy && depth > 0) break;
     queueSize = operationQueueParam.length;
   }
 };

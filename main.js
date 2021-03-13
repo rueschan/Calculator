@@ -3,10 +3,9 @@ const path = require('path');
 
 function createWindow() {
   const window = new BrowserWindow({
-    // width: 320,
-    width: 1020,
-    height: 600,
-    // resizable: false,
+    width: 320,
+    height: 590,
+    resizable: false,
     webPreferences: {
       preload: path.join(__dirname, './src/preload.js'),
       nodeIntegration: true,
@@ -14,7 +13,6 @@ function createWindow() {
   });
 
   window.loadFile('./public/html/index.html');
-  window.webContents.openDevTools(); // DEBUG-ONLY
 }
 
 app.whenReady().then(createWindow);

@@ -2,16 +2,27 @@ html {
   font-family: sans-serif;
 }
 
-#answer-text {
-  width: 95%;
-  margin-top: 50px;
-  margin-bottom: 10px;
+#answer-div {
+  position: relative;
+  min-height: 150px;
+  width: 90%;
+  margin: 0 5% 0 5%;
   font-size: 80px;
   text-align: right;
-  vertical-align: bottom;
+}
+
+#answer-text {
+  position: absolute;
+  bottom: 15%;
+  right: 0;
+  line-height: 0%;
 }
 
 #keyboard {
+  position: fixed;
+  width: 100%;
+  bottom: 10px;
+  right: 10px;
   width: 95%;
 }
 
@@ -22,6 +33,10 @@ button {
   border: none;
   text-align: center;
   font-size: x-large;
+}
+
+button:active {
+  opacity: 50%;
 }
 
 .double-button {
@@ -39,7 +54,7 @@ button {
 }
 
 .row {
-  height: 70px;
+  height: 74px;
   margin: none;
 }
 

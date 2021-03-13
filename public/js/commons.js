@@ -3,11 +3,16 @@ function keyPressed(element) {
 
   document.getElementById('answer-text').textContent = (result || '0');
 
+  const MAX_RESULT_LENGTH = 5;
   let pixelsToReduce = 0;
-  if (result && String(result).length > 10) {
-    pixelsToReduce = (String(result).length - 10) * 5;
+  if (result && String(result).length > MAX_RESULT_LENGTH) {
+    pixelsToReduce = Math.min(
+      50,
+      (String(result).length - MAX_RESULT_LENGTH) * 5,
+    );
   }
 
-  const fontSize = `${80 - pixelsToReduce}px`;
+  const DEFAULT_FONT_SIZE = 80;
+  const fontSize = `${DEFAULT_FONT_SIZE - pixelsToReduce}px`;
   document.getElementById('answer-text').style.fontSize = fontSize;
 }

@@ -53,10 +53,7 @@ const buildNumber = () => {
 };
 
 const doSubstraction = (a, b) => a - b;
-const doAddition = (a, b) => {
-  console.log('Operation', a, '+', b, '=', a + b);
-  return a + b;
-};
+const doAddition = (a, b) => a + b;
 const doDivision = (a, b) => a / b;
 const doMultiplication = (a, b) => a * b;
 
@@ -112,8 +109,6 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
         throw Error('Unidentified operation');
     }
 
-    console.log('Operation', left, currentOperation.operation, right, '=', numberQueueParam[0]);
-
     if (nextOperation && currentOperation.hierarchy > nextOperation.hierarchy) break;
     queueSize = operationQueueParam.length;
   }
@@ -136,9 +131,8 @@ const clear = () => {
 };
 
 const keyMediator = (keyDetails) => {
-  console.log('Pressed Key', keyDetails);
-
   let result;
+
   switch (keyDetails.type) {
     case 'number':
       return concatDigit(keyDetails.value);
@@ -174,10 +168,6 @@ const keyMediator = (keyDetails) => {
   }
 };
 
-const onKeyPressed = (keyId) => {
-  const result = keyMediator(keys[keyId]);
-  console.log(currentNumber, operationQueue, numberQueue, currentCalculationString, result);
-  return result;
-};
+const onKeyPressed = (keyId) => keyMediator(keys[keyId]);
 
 module.exports = onKeyPressed;

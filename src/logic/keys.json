@@ -50,10 +50,10 @@
     "type": "percentage",
     "sign": "%"
   },
-  "substraction": {
+  "subtraction": {
     "type": "operator",
     "sign": "-",
-    "operation": "substraction",
+    "operation": "subtraction",
     "hierarchy": 1
   },
   "addition": {

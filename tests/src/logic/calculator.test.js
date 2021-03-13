@@ -4,7 +4,7 @@ const onKeyPressed = require('../../../src/logic/keyMediator');
 const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
 describe('Separated operations by hierarchy', () => {
-  test('Substraction and addition only', () => {
+  test('Subtraction and addition only', () => {
     for (let i = 0; i < 10; i += 1) {
       const a = Math.floor(Math.random() * 9);
       const b = Math.floor(Math.random() * 9);
@@ -17,11 +17,11 @@ describe('Separated operations by hierarchy', () => {
       onKeyPressed(numbers[a]);
       onKeyPressed('addition');
       onKeyPressed(numbers[b]);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       onKeyPressed(numbers[c]);
       onKeyPressed('addition');
       onKeyPressed(numbers[d]);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       onKeyPressed(numbers[e]);
 
       const answer = onKeyPressed('equal');
@@ -29,7 +29,7 @@ describe('Separated operations by hierarchy', () => {
     }
   });
 
-  test('Substraction and addition only with decimals', () => {
+  test('Subtraction and addition only with decimals', () => {
     const roundToTwoDecimals = (num) => {
       const numString = Number(num).toFixed(2);
       return Number.parseFloat(numString);
@@ -52,7 +52,7 @@ describe('Separated operations by hierarchy', () => {
       pressKeysForDecimal(a);
       onKeyPressed('addition');
       pressKeysForDecimal(b);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       pressKeysForDecimal(c);
 
       const answer = onKeyPressed('equal');
@@ -60,7 +60,7 @@ describe('Separated operations by hierarchy', () => {
     }
   });
 
-  test('Substraction and addition only with percentage', () => {
+  test('Subtraction and addition only with percentage', () => {
     for (let i = 0; i < 10; i += 1) {
       const a = Math.floor(Math.random() * 9);
       const b = Math.floor(Math.random() * 9);
@@ -71,7 +71,7 @@ describe('Separated operations by hierarchy', () => {
       onKeyPressed(numbers[a]);
       onKeyPressed('addition');
       onKeyPressed(numbers[b]);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       onKeyPressed(numbers[c]);
       onKeyPressed('percentage');
       onKeyPressed('addition');
@@ -177,7 +177,7 @@ describe('Mixed operations by hierarchy', () => {
       onKeyPressed(numbers[b]);
       onKeyPressed('multiplication');
       onKeyPressed(numbers[c]);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       onKeyPressed(numbers[d]);
       onKeyPressed('division');
       onKeyPressed(numbers[e]);
@@ -218,7 +218,7 @@ describe('Mixed operations by hierarchy', () => {
       pressKeysForDecimal(b);
       onKeyPressed('multiplication');
       pressKeysForDecimal(c);
-      onKeyPressed('substraction');
+      onKeyPressed('subtraction');
       pressKeysForDecimal(a);
       onKeyPressed('division');
       pressKeysForDecimal(b);

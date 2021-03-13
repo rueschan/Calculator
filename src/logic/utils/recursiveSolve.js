@@ -4,7 +4,7 @@ const {
 } = require('./percentage');
 
 const {
-  doSubstraction,
+  doSubtraction,
   doAddition,
   doDivision,
   doMultiplication,
@@ -24,9 +24,9 @@ const recursiveSolve = (operationQueueParam, numberQueueParam) => {
     const [right] = numberQueueParam;
 
     switch (currentOperation.operation) {
-      case 'substraction':
+      case 'subtraction':
         // eslint-disable-next-line no-param-reassign
-        numberQueueParam[0] = doSubstraction(
+        numberQueueParam[0] = doSubtraction(
           ifPercentageToFractionOf100(left),
           ifPercentageToFractionOfLeft(left, right),
         );

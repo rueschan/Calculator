@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
 function keyPressed(element) {
   const result = window.electron.onKeyPressed(element.name);
 

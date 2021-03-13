@@ -1,5 +1,5 @@
 const { contextBridge } = require('electron');
-const onKeyPressed = require('./logic/calculator');
+const onKeyPressed = require('./logic/keyMediator');
 
 contextBridge.exposeInMainWorld(
   'electron',

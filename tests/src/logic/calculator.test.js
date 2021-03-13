@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-operators */
-const onKeyPressed = require('../../../src/logic/calculator');
+const onKeyPressed = require('../../../src/logic/keyMediator');
 
 const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
